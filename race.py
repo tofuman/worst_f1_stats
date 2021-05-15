@@ -10,6 +10,9 @@ class Race(object):
         self.dnf = []
         self.dsq = []
         self.dns = []
+        self.wd = []
+        self.dnq = []
+        self.exc = []
         self.drivers = []
         self.fastest_lap = ""
         self.name = name
@@ -36,6 +39,12 @@ class Race(object):
             self.dsq.append(driver)
         elif "DNS" in position:
             self.dns.append(driver)
+        elif "DNQ" in position:
+            self.dnq.append(driver)
+        elif "WD" in position:
+            self.wd.append(driver)
+        elif "EXC" in position:
+            self.exc.append(driver)
         elif len(result) > 1:
                 print("Could not map result: "+driver + " ("+ self.name  + ","+ self.year + "): " + result  )
         if "*" in result:

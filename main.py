@@ -7,7 +7,7 @@ from race import Race;
 from driver import Driver;
 
 # data_set = ["2018"]
-data_set = ["2018", "2019", "2020", "2021_spain"]
+data_set = ["2015", "2016", "2017", "2018", "2019", "2020", "2021_spain"]
 
 drivers = {}
 seasons = {}
@@ -24,7 +24,7 @@ for year in data_set:
                 seasons[year].add_race(race)
                 races.append(race)
         for row in reader:
-            driver = row["Driver"]
+            driver = row["Driver"].lstrip(" ").rstrip(" ")
             if driver not in drivers:
                 drivers[driver] = Driver(driver, year)
             seasons[year].add_driver(driver)
