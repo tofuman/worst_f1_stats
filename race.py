@@ -1,18 +1,17 @@
 
 class Race(object):
-    cars_started = 0
-    cars_finished = 0
-    results = {}
-    reverse_finish = {}
-    dnf = []
-    dsq = []
-    dns = []
-    name = ""
-    year = 0
-    drivers = []
-    fastest_lap = ""
+
 
     def __init__(self, name, year):
+        self.cars_started = 0
+        self.cars_finished = 0
+        self.results = {}
+        self.reverse_finish = {}
+        self.dnf = []
+        self.dsq = []
+        self.dns = []
+        self.drivers = []
+        self.fastest_lap = ""
         self.name = name
         self.year = year
 
@@ -20,7 +19,11 @@ class Race(object):
         return self.name + "(" + self.year + ")"
 
     def add_driver(self, driver, result):
-        self.drivers.append(driver)
+        if driver not in self.drivers:
+            self.drivers.append(driver)
+        else:
+            print("Warning Driver racing a race twice!" + str(self))
+            return
         position = result.rstrip('*')
 
         if position.isnumeric():

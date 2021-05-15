@@ -6,8 +6,8 @@ from season import Season;
 from race import Race;
 from driver import Driver;
 
-data_set = ["2018"]
-# data_set = ["2018", "2019", "2020", "2021_spain"]
+# data_set = ["2018"]
+data_set = ["2018", "2019", "2020", "2021_spain"]
 
 drivers = {}
 seasons = {}
@@ -29,10 +29,10 @@ for year in data_set:
                 drivers[driver] = Driver(driver, year)
             seasons[year].add_driver(driver)
             for race in races:
+                print(year + ", " + driver + ", " + race + " = " + row[race])
                 seasons[year].add_result(race, driver, row[race])
         for driver in seasons[year].drivers:
             seasons[year].calc_drivers_avg_finish(drivers[driver])
-        print([year + x.__str__() + "\n" for x in seasons.values()])
 
 for name, driver in drivers.items():
     driver.calc_reverse_finish()

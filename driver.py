@@ -1,11 +1,11 @@
 
 
 class Driver(object):
-    name = ""
-    years = []
-    reverse_finishes = []
-    avg_finish = 0
+
     def __init__(self, driver, year):
+        self.years = []
+        self.reverse_finishes = []
+        self.avg_finish = 0
         self.name = driver
         self.years.append(year)
 
