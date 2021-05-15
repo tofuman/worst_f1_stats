@@ -34,43 +34,14 @@ for year in data_set:
         for driver in seasons[year].drivers:
             seasons[year].calc_drivers_avg_finish(drivers[driver])
 
+worst = {}
 for name, driver in drivers.items():
-    driver.calc_reverse_finish()
+    worst[name] = driver.calc_reverse_finish()
 
+sorted_worst = {}
+sorted_keys = sorted(worst, key=worst.get, reverse=True)
 
-# def add_driver_line_to_races(row, year, driver, race_cal):
-#     for race, result in row.items():
-#         result = result.rstrip('*')
-#         if result.isnumeric():
-#             races[year][race][result] = driver
-#     #races[year][race] = sorted(races[year][race])
-#
-# def add_driver_line_to_drivers(row, year, driver, race_cal):
-#     for race, result in row.items():
-#         result = result.rstrip('*')
-#         if result.isnumeric():
-#             drivers[driver][year][race] = result
-#     #races[year][race] = sorted(races[year][race])
-#
-#
-# for year in data_set:
-#     with open(year+".csv", newline='', encoding='utf-8') as csvfile:
-#         reader = csv.DictReader(csvfile)
-#         race_cal = []
-#         race_results = {}
-#         races[year] = {}
-#         last_finisher = {}
-#         race_cal = reader.fieldnames[1:]
-#         for race in race_cal:
-#             races[year][race] = {}
-#         for row in reader:
-#             driver = row["Driver"]
-#             if driver not in drivers:
-#                 drivers[driver] = {}
-#             drivers[driver][year] = {}
-#         for row in reader:
-#             driver = row["Driver"]
-#             results = row
-#             del results["Driver"]
-#             add_driver_line_to_races(results, year, driver, race_cal)
-#             add_driver_line_to_drivers(results, year, driver, race_cal)
+count = 1
+for name in sorted_keys:
+    print(str(count) +". worst driver: "+ name +" Score: "+ str(worst[name]))
+    count += 1

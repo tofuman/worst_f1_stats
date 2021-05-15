@@ -24,4 +24,5 @@ class Driver(object):
             avg += finish
         if len(self.reverse_finishes) >0:
             self.avg_finish = avg / len(self.reverse_finishes)
-        print(self.name + " Finsihed " + str(len(self.reverse_finishes)) + " with " + str(self.avg_finish))
+        # print(self.name + " Finsihed " + str(len(self.reverse_finishes)) + " with " + str(self.avg_finish))
+        return self.avg_finish
