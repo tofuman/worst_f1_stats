@@ -29,19 +29,19 @@ for year in data_set:
                 drivers[driver] = Driver(driver, year)
             seasons[year].add_driver(driver)
             for race in races:
-                print(year + ", " + driver + ", " + race + " = " + row[race])
+                # print(year + ", " + driver + ", " + race + " = " + row[race])
                 seasons[year].add_result(race, driver, row[race])
         for driver in seasons[year].drivers:
             seasons[year].calc_drivers_avg_finish(drivers[driver])
 
 worst = {}
 for name, driver in drivers.items():
-    worst[name] = driver.calc_reverse_finish()
+    worst[name] = driver.calc_number_weighted_reverse_finish()
 
 sorted_worst = {}
 sorted_keys = sorted(worst, key=worst.get, reverse=True)
 
 count = 1
 for name in sorted_keys:
-    print(str(count) +". worst driver: "+ name +" Score: "+ str(worst[name]))
+    print(str(count).ljust(2) +".: "+ name.ljust(20) +" Score: "+ str(worst[name]))
     count += 1

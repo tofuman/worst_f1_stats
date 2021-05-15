@@ -40,7 +40,7 @@ class Race(object):
                 print("Could not map result: "+driver + " ("+ self.name  + ","+ self.year + "): " + result  )
         if "*" in result:
             self.fastest_lap = driver
-        self.cars_started = len(self.dnf) + len(self.results)
+        self.cars_started = len(self.dnf) + len(self.dsq) + len(self.results)
 
     def calc_reverse_finish(self):
         for position, driver in self.results.items():

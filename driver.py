@@ -1,4 +1,4 @@
-
+import math
 
 class Driver(object):
 
@@ -26,3 +26,9 @@ class Driver(object):
             self.avg_finish = avg / len(self.reverse_finishes)
         # print(self.name + " Finsihed " + str(len(self.reverse_finishes)) + " with " + str(self.avg_finish))
         return self.avg_finish
+
+    def calc_number_weighted_reverse_finish(self):
+        return (self.calc_reverse_finish()**2) #* math.sqrt(len(self.reverse_finishes))
+
+    def get_number_races(self):
+        return len(self.reverse_finishes)

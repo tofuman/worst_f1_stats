@@ -18,7 +18,7 @@ class Season(object):
 
     def add_race(self, name):
         self.races[name] = Race(name, self.year)
-        print("Added new Race for " + self.year + " : " + name)
+        # print("Added new Race for " + self.year + " : " + name)
 
     def add_result(self, race, driver, result):
         self.races[race].add_driver(driver, result)
