@@ -49,7 +49,7 @@ def main(start, end):
             print((str(count).ljust(2)) +".: "+
              name.ljust(20) +
              " Score: "+ score+
-             " Races: "+str(len(drivers[name].reverse_finishes)))
+             " Races: "+str(drivers[name].get_number_races()))
             count += 1
     print(str(count) +" Drivers Finished 1 Race. "+ str(len(worst)) + " Drivers Overall")
 
