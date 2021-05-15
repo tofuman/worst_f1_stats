@@ -43,5 +43,9 @@ sorted_keys = sorted(worst, key=worst.get, reverse=True)
 
 count = 1
 for name in sorted_keys:
-    print(str(count).ljust(2) +".: "+ name.ljust(20) +" Score: "+ str(worst[name]))
+    score = "{:.3f}".format(worst[name])
+    print((str(count).ljust(2)) +".: "+
+     name.ljust(20) +
+     " Score: "+ score+
+     " Races: "+str(len(drivers[name].reverse_finishes)))
     count += 1
